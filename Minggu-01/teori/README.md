@@ -15,13 +15,13 @@ Interactive Mode
 Ketika perintah dibaca dari tty, interpreter dikatakan dalam mode interaktif. Dalam mode ini ia meminta perintah berikutnya dengan prompt utama, biasanya tiga tanda lebih besar dari (>>>); untuk baris lanjutan diminta dengan prompt sekunder, secara default tiga titik (...). Penerjemah mencetak pesan selamat datang yang menyatakan nomor versinya dan pemberitahuan hak cipta sebelum mencetak permintaan pertama:
 
 (base) C:\Windows\System32>python
-Python 3.10.9 | packaged by conda-forge | (main, Jan 11 2023, 15:15:40) [MSC v.1916 64 bit (AMD64)] on win32
+`Python 3.10.9 | packaged by conda-forge | (main, Jan 11 2023, 15:15:40) [MSC v.1916 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>> the_world_is_flat = True
 >>> if the_world_is_flat:
 ...     print("Be careful not to fall off!")
 ...
-Be careful not to fall off!
+Be careful not to fall off!`
 
 BAB 3
 Using Python as a Calculator 
