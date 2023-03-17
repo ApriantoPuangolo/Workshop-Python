@@ -1,4 +1,4 @@
-`BAB 1
+BAB 1
 Python
 Python adalah bahasa yang ditafsirkan, yang dapat menghemat banyak waktu Anda selama pengembangan program karena tidak diperlukan kompilasi dan penautan. Penerjemah dapat digunakan secara interaktif, yang membuatnya mudah untuk bereksperimen dengan fitur bahasa, menulis program sekali pakai, atau menguji fungsi selama pengembangan program dari bawah ke atas. Ini juga merupakan kalkulator meja yang berguna.
 Python memungkinkan program ditulis dengan kompak dan mudah dibaca. Program yang ditulis dengan Python biasanya jauh lebih pendek daripada program C, C++, atau Java yang setara, karena beberapa alasan:
@@ -18,9 +18,12 @@ Ketika perintah dibaca dari tty, interpreter dikatakan dalam mode interaktif. Da
 (base) C:\Windows\System32>python
 Python 3.10.9 | packaged by conda-forge | (main, Jan 11 2023, 15:15:40) [MSC v.1916 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
+...
 >>> the_world_is_flat = True
+...
 >>> if the_world_is_flat:
-...     print("Be careful not to fall off!")
+...     
+        print("Be careful not to fall off!")
 ...
 Be careful not to fall off!
 ...
