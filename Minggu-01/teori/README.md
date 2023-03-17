@@ -14,20 +14,23 @@ BAB 2
 Interactive Mode
 Ketika perintah dibaca dari tty, interpreter dikatakan dalam mode interaktif. Dalam mode ini ia meminta perintah berikutnya dengan prompt utama, biasanya tiga tanda lebih besar dari (>>>); untuk baris lanjutan diminta dengan prompt sekunder, secara default tiga titik (...). Penerjemah mencetak pesan selamat datang yang menyatakan nomor versinya dan pemberitahuan hak cipta sebelum mencetak permintaan pertama:
 
+...
 (base) C:\Windows\System32>python
-`Python 3.10.9 | packaged by conda-forge | (main, Jan 11 2023, 15:15:40) [MSC v.1916 64 bit (AMD64)] on win32
+Python 3.10.9 | packaged by conda-forge | (main, Jan 11 2023, 15:15:40) [MSC v.1916 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>> the_world_is_flat = True
 >>> if the_world_is_flat:
 ...     print("Be careful not to fall off!")
 ...
-Be careful not to fall off!`
+Be careful not to fall off!
+...
 
 BAB 3
 Using Python as a Calculator 
 
 Numbers :
 Penerjemah bertindak sebagai kalkulator sederhana: Anda dapat mengetikkan ekspresi dan itu akan menulis nilainya. Sintaks ekspresi langsung: operator +, -, * dan / berfungsi seperti kebanyakan bahasa lain (misalnya, Pascal atau C); tanda kurung (()) dapat digunakan untuk pengelompokan. Misalnya:
+...
 >>> 2 + 2
 4
 >>> 50 - 5*6
@@ -52,9 +55,11 @@ Penerjemah bertindak sebagai kalkulator sederhana: Anda dapat mengetikkan ekspre
 >>> height = 5 * 9
 >>> width * height
 900
+...
 
 String :
 Selain angka, Python juga bisa memanipulasi string, yang bisa diekspresikan dalam beberapa cara. Mereka dapat diapit dengan tanda kutip tunggal ('...') atau tanda kutip ganda ("...") dengan hasil yang sama 2. \ dapat digunakan untuk menghindari tanda kutip:
+...
 >>> 'spam eggs'  # single quotes
 'spam eggs'
 >>> 'doesn\'t'  # use \' to escape the single quote...
@@ -79,9 +84,11 @@ KeyboardInterrupt
 >>> print(s)  # with print(), \n produces a new line
 First line.
 Second line.
+...
 
 Lists :
 Python mengetahui sejumlah tipe data majemuk, yang digunakan untuk mengelompokkan nilai lain. Yang paling serbaguna adalah daftar, yang dapat ditulis sebagai daftar nilai (item) yang dipisahkan koma di antara tanda kurung siku. Daftar mungkin berisi item dari tipe yang berbeda, tetapi biasanya semua item memiliki tipe yang sama.
+...
 >>> squares = [1, 4, 9, 16, 25]
 >>> squares
 [1, 4, 9, 16, 25]
@@ -91,6 +98,8 @@ Python mengetahui sejumlah tipe data majemuk, yang digunakan untuk mengelompokka
 25
 >>> squares[-3:]  # slicing returns a new list
 [9, 16, 25]
+...
+...
 >>> # Fibonacci series:
 >>> # the sum of two elements defines the next
     a, b = 0, 1
@@ -120,3 +129,4 @@ while a < 1000:
      a, b = b, a+b
 
 0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,`
+...
