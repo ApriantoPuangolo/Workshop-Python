@@ -92,3 +92,91 @@ membuat instance baru dari kelas dan menugaskan objek ini ke variabel lokal x.
 
 Operasi instantiasi ("memanggil" objek kelas) membuat objek kosong. Banyak kelas suka membuat objek dengan instance yang disesuaikan dengan keadaan awal tertentu. Oleh karena itu kelas dapat mendefinisikan metode khusus bernama __init__(), seperti ini:
 
+***9.3.5. Class and Instance Variables(Variabel Kelas dan Instance)***
+
+Secara umum, variabel instan untuk data unik untuk setiap instans dan variabel kelas untuk atribut dan metode yang digunakan bersama oleh semua instans kelas:
+
+class Dog:
+
+    kind = 'canine'         # class variable shared by all instances
+
+    def __init__(self, name):
+        self.name = name    # instance variable unique to each instance
+
+>>> d = Dog('Fido')
+>>> e = Dog('Buddy')
+>>> d.kind                  # shared by all dogs
+'canine'
+>>> e.kind                  # shared by all dogs
+'canine'
+>>> d.name                  # unique to d
+'Fido'
+>>> e.name                  # unique to e
+'Buddy'
+
+Seperti yang dibahas dalam A Word About Names and Objects, data yang dibagikan mungkin memiliki efek mengejutkan dengan melibatkan objek yang dapat berubah seperti daftar dan kamus. Misalnya, daftar trik dalam kode berikut tidak boleh digunakan sebagai variabel kelas karena hanya satu daftar yang akan digunakan bersama oleh semua instance Anjing:
+
+class Dog:
+
+    tricks = []             # mistaken use of a class variable
+
+    def __init__(self, name):
+        self.name = name
+
+    def add_trick(self, trick):
+        self.tricks.append(trick)
+
+>>> d = Dog('Fido')
+>>> e = Dog('Buddy')
+>>> d.add_trick('roll over')
+>>> e.add_trick('play dead')
+>>> d.tricks                # unexpectedly shared by all dogs
+['roll over', 'play dead']
+
+Desain kelas yang benar harus menggunakan variabel instan sebagai gantinya:
+
+class Dog:
+
+    def __init__(self, name):
+        self.name = name
+        self.tricks = []    # creates a new empty list for each dog
+
+    def add_trick(self, trick):
+        self.tricks.append(trick)
+
+>>> d = Dog('Fido')
+>>> e = Dog('Buddy')
+>>> d.add_trick('roll over')
+>>> e.add_trick('play dead')
+>>> d.tricks
+['roll over']
+>>> e.tricks
+['play dead']
+
+***9.4. Random Remarks (Keterangan Acak)***
+
+
+Jika nama atribut yang sama muncul di kedua instance dan di kelas, maka pencarian atribut akan memprioritaskan instance tersebut:
+
+>>>class Warehouse:
+...   purpose = 'storage'
+...   region = 'west'
+...
+>>>w1 = Warehouse()
+>>>print(w1.purpose, w1.region)
+storage west
+>>>w2 = Warehouse()
+>>>w2.region = 'east'
+>>>print(w2.purpose, w2.region)
+storage east
+
+Atribut data dapat direferensikan oleh metode maupun oleh pengguna biasa ("klien") dari suatu objek. Dengan kata lain, kelas tidak dapat digunakan untuk mengimplementasikan tipe data abstrak murni. Nyatanya, tidak ada apa pun dalam Python yang memungkinkan untuk memaksakan penyembunyian data — semuanya didasarkan pada konvensi. (Di sisi lain, implementasi Python, yang ditulis dalam C, dapat sepenuhnya menyembunyikan detail implementasi dan mengontrol akses ke objek jika perlu; ini dapat digunakan oleh ekstensi ke Python yang ditulis dalam C.)
+
+
+Klien harus menggunakan atribut data dengan hati-hati — klien dapat mengacaukan invarian yang dikelola oleh metode dengan menandai atribut data mereka. Perhatikan bahwa klien dapat menambahkan atribut datanya sendiri ke objek instan tanpa memengaruhi validitas metode, selama konflik nama dihindari — sekali lagi, konvensi penamaan dapat menghemat banyak kerumitan di sini.
+
+
+Tidak ada singkatan untuk mereferensikan atribut data (atau metode lain!) dari dalam metode. Saya menemukan bahwa ini benar-benar meningkatkan keterbacaan metode: tidak ada kemungkinan membingungkan variabel lokal dan variabel instan ketika melihat sekilas melalui metode.
+
+
+Seringkali, argumen pertama dari sebuah metode disebut self. Ini tidak lebih dari sebuah konvensi: nama self sama sekali tidak memiliki arti khusus untuk Python. Perhatikan, bagaimanapun, bahwa dengan tidak mengikuti konvensi, kode Anda mungkin kurang dapat dibaca oleh programmer Python lainnya, dan juga dapat dibayangkan bahwa program browser kelas dapat ditulis yang bergantung pada konvensi semacam itu.
