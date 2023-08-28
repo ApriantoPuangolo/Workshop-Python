@@ -1,1 +1,10 @@
+# RESPONSI WORKSHOP PYTHON
+
+```
+NAMA  : Aprianto A. Puangolo
+NIM   : 205410026
+KELAS : INFORMATIKA-1
+```
+
+TAMPILAN : ![TAMPILAN](<Screenshot 2023-07-14 193853.png>)
 
